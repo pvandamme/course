@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Notes App</title>
+</head>
+<body>
+	<h1>Notes App</h1>
+	<p>This application was created by pvandamm</p>
+	<input type="text" id="search_text" placeholder="Filters Notes">
+	<select id="filter_by">
+		<option value="by_edited">Sort by last edited</option>
+		<option value="by_created">Sort by last created</option>
+		<option value="alphabetical">Sort alphabetically</option>
+	</select>
+	<div id="notes"></div>
+	<button id="create_note">Create Note</button>
+	<script src="uuidv4.js"></script>
+	<script src="notes-app-functions.js"></script>
+	<script src="notes-app.js"></script>
+</body>
+</html>
