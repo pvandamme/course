@@ -1,0 +1,134 @@
+/* Global Styles */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+	font-size: 2.6rem;
+}
+
+li,
+button,
+label,
+input,
+p {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 4.8rem;
+}
+
+h3 {
+	font-size: 3rem;
+	font-weight: normal;
+}
+
+h4,
+h5 {
+	font-size: 2.8rem;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+nav a:hover {
+	border-bottom: 0.5px solid currentColor; /* Or whatever color you want */
+}
+
+button {
+	padding: 2rem 6rem;
+	background: #4c6e97;
+	border: none;
+	color: white;
+	font-size: 1.8rem;
+	cursor: pointer;
+	transition: background 0.5s ease-in-out;
+}
+
+button:hover {
+	background: #27394e;
+}
+
+/* Nav Section With HERO */
+
+.main-head {
+	background: #131c27;
+	color: white;
+	position: sticky;
+	top: 0px;
+	z-index: 3;
+}
+
+nav {
+	display: flex;
+	width: 90%;
+	margin: auto;
+	padding: 2rem;
+	min-height: 10vh;
+	align-items: center;
+}
+
+nav ul {
+	display: flex;
+	flex-grow: 1;
+	justify-content: space-around;
+	align-items: center;
+	list-style: none;
+}
+
+#logo {
+	flex-grow: 2;
+	font-family: 'Pattaya', sans-serif;
+	font-weight: 400;
+}
+
+.hero {
+	min-height: 90vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.8), transparent),
+		url('./img/landing-page.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.hero h3 {
+	padding: 5rem;
+}
+
+/* Media Query */
+@media screen and (max-width: 932px) {
+	html {
+		font-size: 45%;
+	}
+	nav {
+		flex-direction: column;
+		align-items: stretch;
+		text-align: center;
+	}
+	nav ul {
+		flex-grow: 0;
+	}
+	#logo {
+		flex-grow: 0;
+		padding-bottom: 2rem;
+	}
+}
