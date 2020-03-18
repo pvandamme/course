@@ -1,6 +1,6 @@
 const express = require('express')
 const Task = require('../models/task')
-const router = new express.Router
+const router = new express.Router()
 const auth = require('../middleware/auth')
 
 // Create task
@@ -8,7 +8,7 @@ const auth = require('../middleware/auth')
 router.post('/tasks', auth, async (req, res) => {
 	const task = new Task({
 		...req.body,
-		"owner": req.user._id
+		owner: req.user._id
 	})
 
 	try {
@@ -22,8 +22,8 @@ router.post('/tasks', auth, async (req, res) => {
 // Read tasks
 
 router.get('/tasks', auth, async (req, res) => {
-	const params = { 
-		owner: req.user.id,
+	const params = {
+		owner: req.user.id
 	}
 	const sort = {}
 
@@ -51,20 +51,25 @@ router.get('/tasks', auth, async (req, res) => {
 router.patch('/tasks/:id', auth, async (req, res) => {
 	const updates = Object.keys(req.body)
 	const allowedUpdates = ['description', 'completed']
-	const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+	const isValidOperation = updates.every((update) =>
+		allowedUpdates.includes(update)
+	)
 
 	if (!isValidOperation) {
 		return res.status(400).send({ error: 'Invalid updates!' })
 	}
 
 	try {
-		const task = await Task.findOne({ _id: req.params.id, owner: req.user._id })
+		const task = await Task.findOne({
+			_id: req.params.id,
+			owner: req.user._id
+		})
 
 		if (!task) {
 			return res.status(404).send()
 		}
 
-		updates.forEach((update) => task[update] = req.body[update])
+		updates.forEach((update) => (task[update] = req.body[update]))
 		await task.save()
 		res.send(task)
 	} catch (e) {
@@ -76,7 +81,10 @@ router.patch('/tasks/:id', auth, async (req, res) => {
 
 router.delete('/tasks/:id', auth, async (req, res) => {
 	try {
-		const task = await Task.findOneAndDelete({ _id: req.params.id, owner: req.user._id })
+		const task = await Task.findOneAndDelete({
+			_id: req.params.id,
+			owner: req.user._id
+		})
 
 		if (!task) {
 			return res.status(404).send()

@@ -5,8 +5,10 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
 html {
 	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -44,8 +46,8 @@ a {
 	text-decoration: none;
 }
 
-nav a:hover {
-	border-bottom: 0.5px solid currentColor; /* Or whatever color you want */
+a:hover {
+	border-bottom: 0.5px solid currentColor;
 }
 
 button {
@@ -62,14 +64,19 @@ button:hover {
 	background: #27394e;
 }
 
+button:focus {
+	background: #27394e;
+	outline-style: solid;
+}
+
 /* Nav Section With HERO */
 
 .main-head {
 	background: #131c27;
 	color: white;
-	position: sticky;
 	top: 0px;
 	z-index: 3;
+	position: sticky;
 }
 
 nav {
@@ -79,6 +86,7 @@ nav {
 	padding: 2rem;
 	min-height: 10vh;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 nav ul {
@@ -114,21 +122,217 @@ nav ul {
 	padding: 5rem;
 }
 
+/* Locations */
+
+#locations {
+	min-height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
+		url('./img/new-york-page.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	position: relative;
+	overflow: hidden;
+}
+
+.locations-head {
+	z-index: 3;
+	width: 90%;
+	margin: auto;
+	margin-top: 20vh;
+}
+
+.locations-head h2 {
+	padding: 1rem 0rem;
+	text-decoration: underline;
+}
+
+.locations-head h3 {
+	padding: 4rem 0rem;
+}
+
+.cloud {
+	pointer-events: none;
+	position: absolute;
+	top: 0%;
+	right: 0%;
+}
+
+.moving-cloud-2 {
+	z-index: -1;
+	top: 15%;
+	animation: cloudAnimation 3s infinite alternate ease-in-out;
+}
+
+@keyframes cloudAnimation {
+	from {
+		transform: translate(5%, -5%);
+	}
+	to {
+		transform: translate(0%, 0%);
+	}
+}
+
+/* Benefits */
+
+.benefits-head {
+	background: #343c44;
+	color: white;
+	min-height: 60vh;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	padding: 3rem;
+}
+
+.benefits-head h3 {
+	padding: 1rem;
+}
+
+/* Cards */
+
+.cards {
+	min-height: 80vh;
+	width: 90%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.card {
+	text-align: center;
+	flex: 1 1 25rem;
+	min-height: 40vh;
+	margin: 2rem 5rem;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cards img {
+	width: 15%;
+	margin: 2rem;
+}
+
+.card-icon {
+	background: #27394e;
+}
+
+.card h4,
+p {
+	padding: 1rem;
+}
+
+/* Contact section */
+
+#contact {
+	min-height: 90vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
+		url('./img/contact-mountain.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form-wrapper {
+	background: rgba(19, 28, 39, 0.8);
+	width: 60%;
+	color: white;
+	border-radius: 20px;
+}
+.form-head {
+	text-align: center;
+	padding: 4rem;
+}
+.name-form,
+.email-form {
+	padding: 3rem;
+	text-align: center;
+}
+.form-wrapper label {
+	margin: 0rem 3rem;
+}
+.form-wrapper button {
+	width: 100%;
+	padding: 2rem;
+	margin-top: 8rem;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+.form-wrapper input {
+	padding: 0.5rem 1rem;
+}
+
+/* Footer Section */
+
+footer {
+	color: white;
+	background: rgba(19, 28, 39, 1);
+}
+.footer-wrapper {
+	display: flex;
+	padding: 2rem;
+	width: 90%;
+	margin: auto;
+	align-items: center;
+	min-height: 10vh;
+	flex-wrap: wrap;
+}
+footer h5 {
+	flex: 1 1 40rem;
+}
+footer ul {
+	display: flex;
+	list-style: none;
+	flex: 1 1 40rem;
+	justify-content: space-between;
+	align-items: center;
+}
+
 /* Media Query */
+
 @media screen and (max-width: 932px) {
 	html {
 		font-size: 45%;
 	}
+	#logo {
+		margin-bottom: 1rem;
+	}
 	nav {
-		flex-direction: column;
-		align-items: stretch;
 		text-align: center;
+		flex-direction: column;
 	}
 	nav ul {
-		flex-grow: 0;
+		justify-content: space-around;
+		width: 100%;
 	}
-	#logo {
-		flex-grow: 0;
-		padding-bottom: 2rem;
+	.hero {
+		min-height: 83vh;
+	}
+	.cloud {
+		height: 400px;
+	}
+	.locations-head h3 {
+		background: rgba(19, 28, 39, 0.9);
+		color: white;
+	}
+	#locations {
+		text-align: center;
+		align-items: center;
+	}
+	.locations-head {
+		margin: auto;
+	}
+	.form-wrapper {
+		width: 100%;
+	}
+	footer {
+		text-align: center;
+	}
+	footer h5 {
+		padding-bottom: 3rem;
 	}
 }
